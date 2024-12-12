@@ -8,7 +8,7 @@ from rest_framework import status
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404
 
-class RecordedSonngsViewSet(viewsets.ModelViewSet):
+class RecordedSongsViewSet(viewsets.ModelViewSet):
     queryset = RecordedSongs.objects.all()
     serializer_class = RecordedSongsSerializer
     permission_classes =[AllowAny]
