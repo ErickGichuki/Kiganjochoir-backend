@@ -20,8 +20,6 @@ class UserSerializer(serializers.ModelSerializer):
             role=role
         )
         user.set_password(validated_data['password'])
-
-        # user.role = 'trainer' if CustomUser.objects.count() == 0 else 'user'
         user.save()
         return user
     
