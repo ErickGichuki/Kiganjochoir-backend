@@ -1,1 +1,1 @@
-web: gunicorn songsproject.wsgi:application --chdir songsproject
+web: gunicorn songsproject.songsproject.wsgi:application --chdir songsproject
