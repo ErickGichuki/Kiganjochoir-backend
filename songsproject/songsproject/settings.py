@@ -4,6 +4,7 @@ from datetime import timedelta
 import dj_database_url
 from dotenv import load_dotenv
 load_dotenv()
+import cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,14 +15,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
+# cloudinary configuration
+cloudinary.config(
+    cloud_name = os.getenv('cloud_name'),
+    api_key = os.getenv('api_key'),
+    api_secret = os.getenv('api_secret'),
+)
+
+  
+# cloudinary.uploader.upload("audios",
+#                              public_id="uploads")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "kiganjochoir.com"]
+
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "kiganjochoir.onrender.com"]
+
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://kiganjochoir.com/",
+    "http://kiganjochoir.onrender.com/",
 ]
 
 # Application definition

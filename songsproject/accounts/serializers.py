@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import CustomUser, Contact
-from django.contrib.auth import authenticate
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,13 +8,20 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
+        email = validated_data['email']
+        domain = email.split('@')[-1].lower()
+        if domain == "trainer.com":
+            role = "trainer"
+        else:
+            role = "member"
         user = CustomUser(
             username=validated_data['username'],
-            email=validated_data['email'],
+            email=email,
+            role=role
         )
         user.set_password(validated_data['password'])
 
-        user.role = 'trainer' if CustomUser.objects.count() == 0 else 'user'
+        # user.role = 'trainer' if CustomUser.objects.count() == 0 else 'user'
         user.save()
         return user
     
