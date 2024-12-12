@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
-    role = models.CharField(max_length=10, default='trainer')
+    role = models.CharField(max_length=10, default='member')
 
     groups = models.ManyToManyField(
         Group,
@@ -20,6 +20,14 @@ class CustomUser(AbstractUser):
         help_text='Specific permissions for this user',
         verbose_name='user permissions',
     )
+
+    def save(self, *args, **kwargs):
+        if self.email.endswith('@trainer'):
+            self.role = 'trainer'
+        else:
+            self.role = 'member'
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.username
