@@ -1,0 +1,1 @@
+web: gunicorn songsproject.wsgi.py:application --chdir songsproject
