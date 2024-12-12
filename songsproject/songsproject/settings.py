@@ -22,9 +22,6 @@ cloudinary.config(
     api_secret = os.getenv('api_secret'),
 )
 
-  
-# cloudinary.uploader.upload("audios",
-#                              public_id="uploads")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
