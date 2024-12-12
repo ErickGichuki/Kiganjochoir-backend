@@ -6,4 +6,4 @@ class Songs(models.Model):
 
 class RecordedSongs(models.Model):
     title = models.CharField(max_length=255)
-    audio = models.FileField(upload_to='')
+    audio = models.FileField(upload_to='choir-audio')

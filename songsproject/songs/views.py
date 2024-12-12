@@ -35,6 +35,7 @@ class RecordedSongsViewSet(viewsets.ModelViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class SongsView(APIView):
+    # permission_classes = [IsAuthenticated]
     def post(self, request):
         serializer = SongsSerializer(data=request.data)
         if serializer.is_valid():
