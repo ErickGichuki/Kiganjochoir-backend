@@ -27,12 +27,13 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "kiganjochoir.onrender.com"]
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://sdakiganjochurchchoir.vercel.app",
 ]
 
 
