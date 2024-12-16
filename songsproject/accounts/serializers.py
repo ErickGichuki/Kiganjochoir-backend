@@ -10,7 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         email = validated_data['email']
         domain = email.split('@')[-1].lower()
-        if domain == "trainer.com":
+        if domain == "erick.com":
             role = "trainer"
         else:
             role = "member"
