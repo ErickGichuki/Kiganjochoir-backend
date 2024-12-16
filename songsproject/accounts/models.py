@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
-    role = models.CharField(max_length=10, default='member')
+    role = models.CharField(max_length=10, default='trainer')
 
     groups = models.ManyToManyField(
         Group,
