@@ -21,14 +21,6 @@ class CustomUser(AbstractUser):
         verbose_name='user permissions',
     )
 
-    def save(self, *args, **kwargs):
-        if self.email.endswith('@trainer'):
-            self.role = 'trainer'
-        else:
-            self.role = 'member'
-
-        super().save(*args, **kwargs)
-
     def __str__(self):
         return self.username
 
